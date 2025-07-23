@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent agent { label 'linux-slave' }
 
     environment {
         AWS_DEFAULT_REGION = "us-east-2"
