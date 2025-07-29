@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
     </head>
     <body>
       <div class="card">
-        <h1>🌐 Hello from ECS Cluster!</h1>
+        <h1>🌐 Hello from Pipeline!</h1>
         <p>Served by container: <code>${hostname}</code></p>
       </div>
     </body>
