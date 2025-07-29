@@ -37,6 +37,7 @@ pipeline {
         sh '''
           git fetch origin main
           git checkout main
+          git pull
 
           npm install
           sudo pm2 restart node-app || sudo pm2 start index.js --name node-app
