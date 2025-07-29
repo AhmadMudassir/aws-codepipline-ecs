@@ -38,7 +38,8 @@ pipeline {
               pm2 restart node-app || pm2 start index.js --name node-app
               pm2 save
             '''
-      }
+          }
+        echo "Deployment Failed. Redeploying main branch"
       }
     }
   }
