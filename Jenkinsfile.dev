@@ -10,7 +10,11 @@ pipeline {
         '''
       }
     }
-
+    stage('Test App') {
+      steps {
+        sh 'node -c index.js'
+      }
+    }
     stage('PM2') {
       steps {
         sh '''
