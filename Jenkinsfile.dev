@@ -6,7 +6,7 @@ pipeline {
       steps {
         sh '''
           ls -a
-          npm install
+          npm i express
         '''
       }
     }
