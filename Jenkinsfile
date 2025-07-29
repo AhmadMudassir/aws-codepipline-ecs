@@ -27,5 +27,19 @@ pipeline {
         '''
       }
     }
+    post {
+      failure{
+           script {
+            sh '''
+              git fetch origin main
+              git checkout main
+    
+              npm install
+              pm2 restart node-app || pm2 start index.js --name node-app
+              pm2 save
+            '''
+      }
+      }
+    }
   }
 }
