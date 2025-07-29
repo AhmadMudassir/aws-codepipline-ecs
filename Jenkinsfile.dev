@@ -5,7 +5,7 @@ pipeline {
     stage('Install Dependencies') {
       steps {
         sh '''
-          cd node-pagination-demo
+          ls -a
           npm install
         '''
       }
