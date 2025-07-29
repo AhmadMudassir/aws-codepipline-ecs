@@ -10,6 +10,7 @@ pipeline {
         '''
       }
     }
+
     stage('Test App') {
       steps {
         sh '''
@@ -19,28 +20,30 @@ pipeline {
         '''
       }
     }
+
     stage('PM2') {
       steps {
         sh '''
-            pm2 restart node-app || pm2 start index.js --name node-app
-            pm2 save
+          pm2 restart node-app || pm2 start index.js --name node-app
+          pm2 save
         '''
       }
     }
-    post {
-      failure{
-           script {
-            sh '''
-              git fetch origin main
-              git checkout main
-    
-              npm install
-              pm2 restart node-app || pm2 start index.js --name node-app
-              pm2 save
-            '''
-          }
-        echo "Deployment Failed. Redeploying main branch"
+  }
+
+  post {
+    failure {
+      script {
+        sh '''
+          git fetch origin main
+          git checkout main
+
+          npm install
+          pm2 restart node-app || pm2 start index.js --name node-app
+          pm2 save
+        '''
       }
+       echo "Deployment Failed. Redeployed main branch successfully."
     }
   }
 }
