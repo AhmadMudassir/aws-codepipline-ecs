@@ -11,7 +11,7 @@ pipeline {
       }
     }
 
-    stage('Start or Restart App with PM2') {
+    stage('PM2') {
       steps {
         sh '''
             pm2 start index.js --name node-app
