@@ -35,8 +35,8 @@ pipeline {
     failure {
       script {
         sh '''
-          git fetch origin main
-          git checkout main
+          git fetch origin fallback-branch
+          git checkout fallback-branch
           git pull
 
           npm install
