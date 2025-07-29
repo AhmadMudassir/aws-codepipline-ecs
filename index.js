@@ -44,13 +44,13 @@ app.get('/', (req, res) => {
     </head>
     <body>
       <div class="card">
-        <h1>🌐 Hello from ECS Cluster!</h1>
+        <h1>🌐 Hello from Pm2 pipeline!</h1>
         <p>Served by container: <code>${hostname}</code></p>
       </div>
     </body>
     </html>
   `);
-}
+});
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => console.log(`App running on port ${PORT}`));
