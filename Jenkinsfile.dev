@@ -14,15 +14,8 @@ pipeline {
     stage('Start or Restart App with PM2') {
       steps {
         sh '''
-          if pm2 list | grep -q "node-app"; then
-            echo "App is running, restarting with PM2..."
-            pm2 restart node-app
-          else
-            echo "App is not running, starting with PM2..."
             pm2 start index.js --name node-app
-          fi
-
-          pm2 save
+            pm2 save
         '''
       }
     }
