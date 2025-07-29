@@ -39,7 +39,7 @@ pipeline {
           git checkout main
 
           npm install
-          sudo pm2 restart node-app || pm2 start index.js --name node-app
+          sudo pm2 restart node-app || sudo pm2 start index.js --name node-app
           pm2 save
         '''
       }
