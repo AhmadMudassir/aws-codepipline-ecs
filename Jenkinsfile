@@ -12,7 +12,11 @@ pipeline {
     }
     stage('Test App') {
       steps {
-        sh 'node -c index.js'
+        sh '''
+          echo "Checking syntax of index.js..."
+          node -c index.js
+          echo "Syntax OK"
+        '''
       }
     }
     stage('PM2') {
